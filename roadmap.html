@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Minepay</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="assets/favicon_round.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <style>
+         body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F2F8FE; /* Set the desired background color */
+        }
+
+        .opaque-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            /* Adjust the height as needed */
+            background-color: #F2F8FE;
+            /* Adjust the background color as needed */
+            pointer-events: none;
+        }
+
+        .container-fluid.hero-header {
+            padding: 0;
+            height: 100vh;
+            position: relative;
+            overflow: hidden; /* Added overflow property */
+        }
+
+        .s-page-1 {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .s-section-1 {
+            width: 100%;
+        }
+
+        .s-section {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .content-container {
+            width: 40%;
+            margin: auto; /* Center the content container */
+        }
+
+        .gradient-heading {
+            background: linear-gradient(to bottom right, #2AF8F5 0%, #4F64E5 100%);
+            display: inline-block;
+            padding: 10px;
+            /* Adjust as needed */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradientAnimation 5s infinite;
+            /* Adjust animation duration as needed */
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gradient-footer {
+            background: linear-gradient(to bottom right, #141e30 0%, #243b55 100%);
+            color: rgb(255, 255, 255);
+            /* Adjust text color for better contrast */
+        }
+
+        .minepay-icon i,
+        .minepay-info i,
+        .join-us-on {
+            background: linear-gradient(to bottom right, #2AF8F5 0%, #4F64E5 100%);
+            display: inline-block;
+            padding: 10px;
+            /* Adjust as needed */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradientAnimation 5s infinite;
+            /* Adjust animation duration as needed */
+        }
+
+        .bubbles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bubble {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: #74c7d6;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatBubble var(--animation-duration) ease-in-out infinite;
+    background: linear-gradient(to bottom right, #2AF8F5 0%, #4F64E5 100%);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble h5 {
+    text-align: center;
+}
+
+.bubble:hover {
+    transform: scale(1.1);
+}
+
+@keyframes floatBubble {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+#container {
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+        }
+
+        #timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+    z-index: 2;
+    /* Increase the z-index to ensure it's above the content */
+    width: 150px; /* Increase the width as needed */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+
+        .timeline-item {
+            cursor: pointer;
+            margin: 10px 0;
+            transition: color 0.3s ease-in-out;
+            text-align: center;
+            color: #fff; /* Set the text color for timeline items */
+        }
+
+        .timeline-item.active {
+            color: #2196F3 !important; /* Set the text color for active items */
+        }
+
+       #scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    margin-left: 150px;
+    overflow-x: hidden; /* Adjust the margin-left based on the width of the timeline */
+}
+
+        .scroll-item {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: transform 0.5s ease-in-out;
+            position: relative;
+            color: #fff;
+        }
+        /* Updated background to use a gradient sequence for each section */
+        #section1 { background: linear-gradient(to bottom right, #B2EBF2, #4F64E5); }
+        #section2 { background: linear-gradient(to bottom right, #64D8CB, #3454C0); }
+        #section3 { background: linear-gradient(to bottom right, #36C4A7, #2D3B8C); }
+        #section4 { background: linear-gradient(to bottom right, #00BFA5, #1A237E); }
+        #section5 { background: linear-gradient(to bottom right, #00B8D4, #E64A19); }
+        #section6 { background: linear-gradient(to bottom right, #00ACC1, #6A1B9A); }
+
+        .scroll-item.active {
+            transform: translateY(0);
+        }
+
+        .section-content {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            /* Ensure text is above the Three.js background */
+        }
+
+        .typewriter-text {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typewriter 4s steps(30) infinite; /* Original speed with a 4s duration */
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .container-fluid.gradient-footer {
+    margin-top: 0 !important;
+    position: relative;
+    z-index: 1;
+    padding-left: 170px; /* Adjust the padding-left to create space for the timeline */
+}
+
+.whitepaper-link {
+    display: inline-block;
+    position: relative;
+    padding: 0 10px; /* Adjust the padding as needed */
+    color: transparent; /* Make the text transparent initially */
+    background-image: linear-gradient(to right, #4F64E5, #2AF8F5); /* Set the gradient colors */
+    background-clip: text; /* Apply the gradient to the text */
+    -webkit-background-clip: text;
+    animation: gradientAnimation 5s infinite linear; /* Apply the animation with a linear timing function */
+    background-size: 200% 100%; /* Set the background size to create the sliding effect */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+    
+    
+
+    </style>
+
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg gradient-footer navbar-light sticky-top p-0 px-4 px-lg-5">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <h1 class="text-primary mb-0">
+                <span class="gradient-heading">MinePay</span>
+            </h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-4 py-lg-0">
+                <a href="index.html" class="nav-item nav-link ">Home</a>
+                <a href="explore.html" class="nav-item nav-link">Explore</a>
+                <a href="roadmap.html" class="nav-item nav-link active">Roadmap</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/minepay-71a6b.appspot.com/o/Minepay%20Whitepaper%202024.pdf?alt=media&token=13ad4da0-052b-485b-af6f-28b13504fd88" class="nav-item nav-link" target="_blank" rel="noopener noreferrer">
+                    <span class="whitepaper-link">WhitePaper</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <div id="container">
+        <div id="timeline">
+            <div class="timeline-item" onclick="scrollToSection(1)">January 2024</div>
+            <div class="timeline-item" onclick="scrollToSection(2)">March 2025</div>
+            <div class="timeline-item" onclick="scrollToSection(3)">May 2025</div>
+            <div class="timeline-item" onclick="scrollToSection(4)">July 2025</div>
+            <div class="timeline-item" onclick="scrollToSection(5)">September 2025</div>
+            <div class="timeline-item" onclick="scrollToSection(6)">October 2025</div>
+        </div>
+
+        <div id="scroll-container">
+            <div class="scroll-item active" id="section1">
+                <div class="section-content">
+                    <h2>January 2024</h2>
+                    <p class="typewriter-text">Roll Out of Minepay Phase-1 App</p>
+                </div>
+            </div>
+            <div class="scroll-item" id="section2">
+                <div class="section-content">
+                    <h2>March 2025</h2>
+                    <p class="typewriter-text">Wallet Feature Rollout Giving Coins Real Value</p>
+                </div>
+            </div>
+            <div class="scroll-item" id="section3">
+                <div class="section-content">
+                    <h2>May 2025</h2>
+                    <p class="typewriter-text">First Public View of Phase-2</p>
+                </div>
+            </div>
+            <div class="scroll-item" id="section4">
+                <div class="section-content">
+                    <h2>July 2025</h2>
+                    <p class="typewriter-text">Beta Testing of Phase-2 Begins</p>
+                </div>
+            </div>
+            <div class="scroll-item" id="section5">
+                <div class="section-content">
+                    <h2>September 2025</h2>
+                    <p class="typewriter-text">Transfer of Funds From Phase-1 to Phase 2</p>
+                </div>
+            </div>
+            <div class="scroll-item" id="section6">
+                <div class="section-content">
+                    <h2>October 2025</h2>
+                    <p class="typewriter-text">Full Rollout of Phase-2 and Further Functionalities Development</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid gradient-footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h1 class="text-primary mb-4">
+                        <span class="gradient-heading">MinePay</span>
+                    </h1>
+                    <span>If you have any inquiries or concerns, please reach out to Minepay through your app or via the
+                        email address provided below. The Minepay team is committed to addressing your requests within
+                        the next 24-48 hours.
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="mb-4 join-us-on">Join Us On</h5>
+                    <p>Follow us on social media to stay updated with our latest news and announcements.</p>
+                    <div class="d-flex">
+                        <a class="btn btn-square rounded-circle me-1 icon-link minepay-icon"
+                            href="https://twitter.com/_Minepay_"
+                            target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square rounded-circle me-1 icon-link minepay-icon"
+                            href="https://discord.gg/jWgvBhdRjy"
+                            target="_blank"><i class="fab fa-discord"></i></a>
+                        <a class="btn btn-square rounded-circle me-1 icon-link minepay-icon"
+                            href="https://www.instagram.com/web3madeeasy/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square rounded-circle me-1 icon-link minepay-icon"
+                            href="https://www.youtube.com/@Web3MadeEasy_/featured" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4 minepay-info">Get In Touch</h5>
+                    <p style="font-size: 18px;"><i class="fa fa-map-marker-alt me-3" style="color: red;"></i>India</p>
+                <p style="font-size: 18px;"><i class="fa fa-envelope me-3" style="color: rgb(93, 212, 63);"></i><a
+                        href="mailto:support@minepay.html">support@minepay.in</a></p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <a class="btn btn-link" href="index.html">Home</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="explore.html">Explore</a>
+                    <a class="btn btn-link" href="privacy.html">T&C</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">Minepay</a>, All Right Reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+        const scrollItems = document.querySelectorAll('.scroll-item');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.scrollY;
+            let activeIndex = Array.from(scrollItems).findIndex(item => {
+                const offsetTop = item.offsetTop;
+                const offsetBottom = offsetTop + item.clientHeight;
+                return currentScroll >= offsetTop && currentScroll < offsetBottom;
+            });
+
+            timelineItems.forEach(item => item.classList.remove('active'));
+
+            if (activeIndex !== -1) {
+                timelineItems[activeIndex].classList.add('active');
+            }
+        });
+
+        function scrollToSection(section) {
+            const sectionElement = document.getElementById(`section${section}`);
+            sectionElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
